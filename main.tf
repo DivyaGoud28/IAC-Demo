@@ -8,6 +8,16 @@ resource "aws_instance" "Iacinstance" {
   vpc_security_group_ids = [aws_security_group.instance-sg.id]
   key_name = var.key_name
 
+  user_data = <<-EOF
+              #!/bin/bash
+              yum update -y
+              yum install -y httpd
+              systemctl start httpd
+              systemctl enable httpd
+              echo "<h1>Welcome to ${var.instance_name}!</h1>" > /var/www/html/index.html
+              EOF
+
+
   tags = {
     Name = "Harnessinstance"
   }
