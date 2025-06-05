@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-    null = {
-      source  = "hashicorp/null"
-      version = "~> 3.0"
-    }
-  }
-}
-
 provider "aws" {
   region = var.region
 }
@@ -47,16 +34,6 @@ module "eks" {
       min_size       = var.min_size
     }
   }
-
-  manage_aws_auth_configmap = true
-
-  aws_auth_users = [
-    {
-      userarn  = "arn:aws:iam::905418051729:user/awscli"
-      username = "awscli"
-      groups   = ["system:masters"]
-    }
-  ]
 
   enable_irsa                     = true
   cluster_endpoint_public_access  = true
