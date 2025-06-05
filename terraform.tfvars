@@ -1,5 +1,0 @@
-aws_region = "us-east-1"
-ami_id = "ami-0e58b56aa4d64231b"
-instance_type = "t2.micro"
-vpc_id = "vpc-0f0c9dae742d17040"
-key_name = "test"
