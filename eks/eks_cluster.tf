@@ -43,11 +43,9 @@ module "eks" {
       username = "awscli"
       groups   = ["system:masters"]
     }
+  ]
 
-  # Recommended for newer versions
-  enable_irsa = true
-
+  enable_irsa                     = true
   cluster_endpoint_public_access  = true
-  cluster_endpoint_private_access = true # Optional: use false if you only want public access
-
+  cluster_endpoint_private_access = true
 }
