@@ -35,6 +35,14 @@ module "eks" {
     }
   }
 
+  access_entries = {
+    awscli_user = {
+      principal_arn     = "arn:aws:iam::905418051729:user/awscli"
+      username          = "awscli"
+      kubernetes_groups = ["system:masters"]
+    }
+  }
+
   # Recommended for newer versions
   enable_irsa = true
 
