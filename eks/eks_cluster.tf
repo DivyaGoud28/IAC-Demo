@@ -37,4 +37,8 @@ module "eks" {
 
   # Recommended for newer versions
   enable_irsa = true
+
+  cluster_endpoint_public_access  = true
+  cluster_endpoint_private_access = true # Optional: use false if you only want public access
+
 }
